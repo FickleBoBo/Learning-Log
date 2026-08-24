@@ -945,22 +945,84 @@ game_over()
 #     print("잘못된 값을 입력하였습니다. 한 자리 숫자만 입력하세요.")
 
 
-class BigNumberError(Exception):
-    def __init__(self, msg):
-        self.msg = msg
+# class BigNumberError(Exception):
+#     def __init__(self, msg):
+#         self.msg = msg
 
-    def __str__(self):
-        return self.msg
+#     def __str__(self):
+#         return self.msg
 
 
-try:
-    print("한 자리 숫자 나누기 전용 계산기입니다.")
-    num1 = int(input("첫 번째 숫자를 입력하세요 : "))
-    num2 = int(input("첫 번째 숫자를 입력하세요 : "))
-    if num1 >= 10 or num2 >= 10:
-        raise BigNumberError(f"입력값 : {num1}, {num2}")
-    print(f"{num1} / {num2} = {int(num1 / num2)}")
-except BigNumberError as err:
-    print(err)
-finally:
-    print("계산기를 이용해 주셔서 감사합니다.")
+# try:
+#     print("한 자리 숫자 나누기 전용 계산기입니다.")
+#     num1 = int(input("첫 번째 숫자를 입력하세요 : "))
+#     num2 = int(input("첫 번째 숫자를 입력하세요 : "))
+#     if num1 >= 10 or num2 >= 10:
+#         raise BigNumberError(f"입력값 : {num1}, {num2}")
+#     print(f"{num1} / {num2} = {int(num1 / num2)}")
+# except BigNumberError as err:
+#     print(err)
+# finally:
+#     print("계산기를 이용해 주셔서 감사합니다.")
+
+# 섹션 11. 모듈과 패키지
+# import theater_module
+
+# theater_module.price(3)
+# theater_module.price_morning(4)
+# theater_module.price_soldier(5)
+
+# import theater_module as mv
+
+# mv.price(3)
+# mv.price_morning(4)
+# mv.price_soldier(5)
+
+# from theater_module import *
+
+# price(3)
+# price_morning(4)
+# price_soldier(5)
+
+# from theater_module import price, price_morning
+
+# price(3)
+# price_morning(4)
+
+# from theater_module import price_soldier as price
+
+# price(3)
+
+# import travel.thailand
+
+# trip_to = travel.thailand.ThailandPackage()
+# trip_to.detail()
+
+# from travel.thailand import ThailandPackage
+
+# trip_to = ThailandPackage()
+# trip_to.detail()
+
+# from travel import vietnam
+
+# trip_to = vietnam.VietnamPackage()
+# trip_to.detail()
+
+# from travel import *
+
+# trip_to = vietnam.VietnamPackage()
+# trip_to.detail()
+
+# import inspect
+# import random
+
+# print(inspect.getfile(random))
+
+# from bs4 import BeautifulSoup
+
+# soup = BeautifulSoup("<p>Some<b>bad<i>HTML")
+# print(soup.prettify())
+
+import byme
+
+byme.sign()
