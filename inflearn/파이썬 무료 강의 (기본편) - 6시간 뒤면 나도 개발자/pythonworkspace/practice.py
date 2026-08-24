@@ -400,3 +400,120 @@ print(students)
 students = ["Iron man", "Thor", "I am groot"]
 students = [i.upper() for i in students]
 print(students)
+
+
+# 함수
+def open_account():
+    print("새로운 계좌가 생성되었습니다.")
+
+
+open_account()
+
+
+# 전달값과 반환값
+def deposit(balance, money):
+    print(f"입금이 완료되었습니다. 잔액은 {balance + money} 원 입니다.")
+    return balance + money
+
+
+balance = 0
+balance = deposit(balance, 1000)
+print(balance)
+
+
+def withdraw(balance, money):
+    if balance >= money:
+        print(f"출금이 완료되었습니다. 잔액은 {balance - money} 원 입니다.")
+        return balance - money
+    else:
+        print(f"출금이 완료되지 않았습니다. 잔액은 {balance} 원 입니다.")
+        return balance
+
+
+balance = 0
+balance = deposit(balance, 1000)
+balance = withdraw(balance, 2000)
+print(balance)
+
+
+def withdraw_night(balance, money):
+    commission = 100
+    return commission, balance - money - commission
+
+
+commission, balance = withdraw_night(balance, 500)
+print(f"수수료는 {commission} 원이며, 잔액은 {balance} 원 입니다.")
+
+
+# 기본값
+def profile(name, age, main_lang):
+    print(f"이름 : {name}\t나이 : {age}\t주 사용 언어 : {main_lang}")
+
+
+profile("유재석", 20, "파이썬")
+profile("김태호", 25, "자바")
+
+
+def profile(name, age=17, main_lang="파이썬"):
+    print(f"이름 : {name}\t나이 : {age}\t주 사용 언어 : {main_lang}")
+
+
+profile("유재석")
+profile("김태호")
+
+
+# 키워드값
+def profile(name, age, main_lang):
+    print(name, age, main_lang)
+
+
+profile(name="유재석", main_lang="파이썬", age=20)
+profile(main_lang="자바", age=25, name="김태호")
+
+
+# 가변인자
+def profile(name, age, lang1, lang2, lang3, lang4, lang5):
+    print(f"이름 : {name}\t나이 : {age}\t", end=" ")
+    print(lang1, lang2, lang3, lang4, lang5)
+
+
+profile("유재석", 20, "Python", "Java", "C", "C++", "C#")
+profile("김태호", 25, "Kotlin", "Swift", "", "", "")
+
+
+def profile(name, age, *language):
+    print(f"이름 : {name}\t나이 : {age}\t", end=" ")
+    for lang in language:
+        print(lang, end=" ")
+    print()
+
+
+profile("유재석", 20, "Python", "Java", "C", "C++", "C#", "JavaScript")
+profile("김태호", 25, "Kotlin", "Swift")
+
+# 지역변수와 전역변수
+gun = 10
+
+
+# def checkpoint(soldiers):
+#     gun = 20
+#     gun = gun - soldiers
+#     print(f"[함수 내] 남은 총 : {gun}")
+
+
+# def checkpoint(soldiers):
+#     global gun
+#     gun = gun - soldiers
+#     print(f"[함수 내] 남은 총 : {gun}")
+
+
+def checkpoint_ret(gun, soldiers):
+    gun = gun - soldiers
+    print(f"[함수 내] 남은 총 : {gun}")
+    return gun
+
+
+print(f"전체 총 : {gun}")
+# checkpoint(2)
+gun = checkpoint_ret(gun, 2)
+print(f"남은 총 : {gun}")
